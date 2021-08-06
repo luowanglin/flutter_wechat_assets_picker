@@ -15,3 +15,4 @@ dependencies:
   photo_manager: ^1.2.5
   provider: ^5.0.0
   video_player: ^2.1.6
+  fluttertoast: ^8.0.8

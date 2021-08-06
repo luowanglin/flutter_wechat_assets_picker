@@ -43,6 +43,7 @@ class AssetPicker<Asset, Path> extends StatefulWidget {
     SortPathDelegate<AssetPathEntity>? sortPathDelegate,
     AssetsPickerTextDelegate? textDelegate,
     FilterOptionGroup? filterOptions,
+    String filterSlogan = '',
     WidgetBuilder? specialItemBuilder,
     IndicatorBuilder? loadingIndicatorBuilder,
     SpecialItemPosition specialItemPosition = SpecialItemPosition.none,
@@ -91,6 +92,7 @@ class AssetPicker<Asset, Path> extends StatefulWidget {
       requestType: requestType,
       sortPathDelegate: sortPathDelegate,
       filterOptions: filterOptions,
+      filterSlogan: filterSlogan,
       routeDuration: routeDuration,
     );
     final Widget picker =

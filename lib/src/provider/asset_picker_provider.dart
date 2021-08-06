@@ -6,6 +6,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../constants/constants.dart';
 
@@ -244,6 +245,7 @@ class DefaultAssetPickerProvider
     this.requestType = RequestType.image,
     this.sortPathDelegate = SortPathDelegate.common,
     this.filterOptions,
+    this.filterSlogan = '',
     int maxAssets = 9,
     int pageSize = 80,
     int pathThumbSize = 80,
@@ -277,6 +279,10 @@ class DefaultAssetPickerProvider
   /// Will be merged into the base configuration.
   /// 将会与基础条件进行合并。
   final FilterOptionGroup? filterOptions;
+
+  /// Filter options Toast
+  /// 筛选口号
+  final String filterSlogan;
 
   @override
   Future<void> getAssetPathList() async {
@@ -320,6 +326,16 @@ class DefaultAssetPickerProvider
 
     // Set first path entity as current path entity.
     if (_pathEntityList.isNotEmpty) {
+      if (filterSlogan.isNotEmpty) {
+        Fluttertoast.showToast(
+            msg: filterSlogan,
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }
       _currentPathEntity ??= pathEntityList.keys.elementAt(0);
     }
   }
